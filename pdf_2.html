@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Resume </title>
+  <style>
+    #resumeContent img {
+      display: block;
+      margin: 0 auto;
+    }
+
+     button {
+padding-inline: 1rem;
+border-radius: 6px;
+border: 7;
+position: relative;
+height:80px;
+font-size:55px;
+background-color: white ;
+    }
+
+/*=============== BUTTON ===============*/
+.button {
+padding-inline: 1rem;
+border-radius: 6px;
+border: 7;
+position: relative;
+height:80px;
+font-size:55px;
+justify-content: center;
+  background-color: #708090;
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+
+  border-radius: 0.5rem;
+  transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+  box-shadow: 0 8px 24px hsla(var(--hue), 90%, 30%, 0.3);
+}
+body {
+background-color: gray;
+}
+
+</style>
+
+
+
+</head>
+<body>
+    <br>
+    <div class="container">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+<!-------- button -------->
+
+<button class="button">
+  <a href="index.html"> Back </a> </Button>
+<br><br><br><br><br><br><br><br><br><br><br>
+<center>
+    <button id="savePDF1">Save as PDF</button>
+    <br><br><br><br><br><br>
+    <div id="resumeContent1">
+    <img id="myImage" src="R1.png" alt="Your Image">
+   
+     
+      <script>
+        document.getElementById('savePDF1').addEventListener('click', function() {
+          const resumeContent = document.getElementById('resumeContent1');
+          html2pdf()
+            .from(resumeContent)
+            .save();
+        });
+      </script>
+</center>
+    </div>
+<br><br>
+<br><br>
+
+<center>
+<br><br>
+ <button id="savePDF2">Save as PDF</button>
+      <br><br><br><br><br><br>
+      <div id="resumeContent2">
+        <img id="myImage" src="R2.png" alt="Your Image">
+      </div>
+
+<br><br>
+<center>
+
+</body>
+</html>
+
+
+      <script>
+        const savePDFButton = document.getElementById('savePDFButton');
+        savePDFButton.addEventListener('click', () => {
+          // Get the content to convert to PDF
+          const content = document.getElementById('resumeContent1'); // Target the resume content
+          // Configure html2pdf options
+          const opt = {
+            margin: 1,
+            filename: 'resume.pdf',
+            image: { type: 'jpeg', quality: 0.45 },
+            html2canvas: { scale: 2 },
+            jsPDF: {
+              unit: 'in',
+              format: 'letter',
+              orientation: 'portrait'
+            }
+          };
+          // Convert and save the PDF
+          html2pdf()
+            .set(opt)
+            .from(content)
+            .save()
+            .then(() => {
+              // Optional: Display a success message
+              console.log('PDF saved successfully!');
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      </script>  
+    
+
+ <script>
+        const savePDFButton = document.getElementById('savePDFButton');
+        savePDFButton.addEventListener('click', () => {
+          // Get the content to convert to PDF
+          const content = document.getElementById('resumeContent2'); // Target the resume content
+          // Configure html2pdf options
+          const opt = {
+            margin: 1,
+            filename: 'resume.pdf',
+            image: { type: 'jpeg', quality: 0.45 },
+            html2canvas: { scale: 2 },
+            jsPDF: {
+              unit: 'in',
+              format: 'letter',
+              orientation: 'portrait'
+            }
+          };
+          // Convert and save the PDF
+          html2pdf()
+            .set(opt)
+            .from(content)
+            .save()
+            .then(() => {
+              // Optional: Display a success message
+              console.log('PDF saved successfully!');
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      </script>
+
+   <script>
+        document.getElementById('savePDF2').addEventListener('click', function() {
+          const resumeContent = document.getElementById('resumeContent2');
+          html2pdf()
+            .from(resumeContent)
+            .save();
+        });
+      </script>
